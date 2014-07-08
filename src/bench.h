@@ -35,9 +35,7 @@ typedef unsigned char bool_t;
 #include        <sys/un.h>
 #include        <sys/resource.h>
 #define PORTMAP
-#include	<rpc/rpc.h>
 #endif
-#include	<rpc/types.h>
 
 #include 	<stdarg.h>
 #ifndef HAVE_uint

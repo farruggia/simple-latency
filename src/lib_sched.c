@@ -30,6 +30,20 @@ extern int reverse_bits(int cpu);
 extern int sched_ncpus();
 extern int sched_pin(int cpu);
 
+typedef unsigned long cpu_set_t;
+
+static int
+sched_setaffinity(pid_t pid, size_t len, cpu_set_t const * cpusetp)
+{
+	return syscall(__NR_sched_setaffinity, pid, len, cpusetp);
+}
+
+static int
+sched_getaffinity(pid_t pid, size_t len, cpu_set_t const * cpusetp)
+{
+	return syscall(__NR_sched_getaffinity, pid, len, cpusetp);
+}
+
 /*
  * The interface used by benchmp.
  *
